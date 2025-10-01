@@ -1,0 +1,65 @@
+{
+    "count": 4,
+    "value": [
+        {
+            "commitId": "ea5550ece2eda617d3c9ad9da5b4ca250bd77f5c",
+            "author": {
+                "name": "Diogo Carvalho",
+                "email": "diogo.carvalho@medicineone.net",
+                "date": "2025-09-30T14:56:36Z"
+            },
+            "committer": {
+                "name": "Diogo Carvalho",
+                "email": "diogo.carvalho@medicineone.net",
+                "date": "2025-09-30T14:56:36Z"
+            },
+            "comment": "resolve conflits",
+            "url": "https://dev.azure.com/MedicineOne/370a7703-5ee1-42ea-8776-fc78114e1509/_apis/git/repositories/f79610b2-b41c-40fa-ace3-134bc39a28e7/commits/ea5550ece2eda617d3c9ad9da5b4ca250bd77f5c"
+        },
+        {
+            "commitId": "b3d54b267c5e76eee4018f4b8c3491a2b87a01b6",
+            "author": {
+                "name": "Diogo Carvalho",
+                "email": "diogo.carvalho@medicineone.net",
+                "date": "2025-09-30T14:43:50Z"
+            },
+            "committer": {
+                "name": "Diogo Carvalho",
+                "email": "diogo.carvalho@medicineone.net",
+                "date": "2025-09-30T14:43:50Z"
+            },
+            "comment": "try resolve conflits",
+            "url": "https://dev.azure.com/MedicineOne/370a7703-5ee1-42ea-8776-fc78114e1509/_apis/git/repositories/f79610b2-b41c-40fa-ace3-134bc39a28e7/commits/b3d54b267c5e76eee4018f4b8c3491a2b87a01b6"
+        },
+        {
+            "commitId": "7a6b6dfbfd72cbbcb6d5b1ef5986f04973a10267",
+            "author": {
+                "name": "Diogo Carvalho",
+                "email": "diogo.carvalho@medicineone.net",
+                "date": "2025-09-30T14:32:29Z"
+            },
+            "committer": {
+                "name": "Diogo Carvalho",
+                "email": "diogo.carvalho@medicineone.net",
+                "date": "2025-09-30T14:32:29Z"
+            },
+            "comment": "left file",
+            "url": "https://dev.azure.com/MedicineOne/370a7703-5ee1-42ea-8776-fc78114e1509/_apis/git/repositories/f79610b2-b41c-40fa-ace3-134bc39a28e7/commits/7a6b6dfbfd72cbbcb6d5b1ef5986f04973a10267"
+        },
+        {
+            "commitId": "30e8bfb0385656b6586a111cf44f6d10909e06bd",
+            "author": {
+                "name": "Diogo Carvalho",
+                "email": "diogo.carvalho@medicineone.net",
+                "date": "2025-09-30T13:33:21Z"
+            },
+            "committer": {
+                "name": "Diogo Carvalho",
+                "email": "diogo.carvalho@medicineone.net",
+                "date": "2025-09-30T13:33:21Z"
+            },
+            "comment": "WIP: Stock synchronization",
+            "url": "https://dev.azure.com/MedicineOne/370a7703-5ee1-42ea-8776-fc78114e1509/_apis/git/repositories/f79610b2-b41c-40fa-ace3-134bc39a28e7/commits/30e8bfb0385656b6586a111cf44f6d10909e06bd"
+        }
+    ]
+}

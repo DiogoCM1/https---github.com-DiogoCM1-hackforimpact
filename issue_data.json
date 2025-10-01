@@ -1,0 +1,147 @@
+{
+    "key": "M1API-1060",
+    "summary": "Stocks | Inventários | Acerto diário de artigos existentes no M1 com os existentes no Primavera",
+    "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+            {
+                "type": "paragraph",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Objetivo",
+                        "marks": [
+                            {
+                                "type": "strong"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "hardBreak"
+                    },
+                    {
+                        "type": "text",
+                        "text": "Desenvolver uma rotina de integração que sincronize periodicamente os artigos entre M1 e Primavera. M1 vai disponibilizar um endpoint com os seguintes parâmetros:"
+                    }
+                ]
+            },
+            {
+                "type": "bulletList",
+                "content": [
+                    {
+                        "type": "listItem",
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Armazém"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "listItem",
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Lista de artigos"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "bulletList",
+                                "content": [
+                                    {
+                                        "type": "listItem",
+                                        "content": [
+                                            {
+                                                "type": "paragraph",
+                                                "content": [
+                                                    {
+                                                        "type": "text",
+                                                        "text": "Pk do artigo"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "listItem",
+                                        "content": [
+                                            {
+                                                "type": "paragraph",
+                                                "content": [
+                                                    {
+                                                        "type": "text",
+                                                        "text": "Pk lote (facultativo)"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "listItem",
+                                        "content": [
+                                            {
+                                                "type": "paragraph",
+                                                "content": [
+                                                    {
+                                                        "type": "text",
+                                                        "text": "Quantidade"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "A função que vamos disponibilizar pressupõe que o envio de informação seja efetuado armazém a armazém."
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "No final de cada envio será feito um processamento de atualização de quantidades. O método irá devolver as diferenças entre quantidades atuais e quantidade anteriores no sentido de facilitar o logging dos erros. Para minimizar o consumo de recursos e facilitar a leitura dos logs, apenas serão guardados os registos que tiverem alterações de quantidades."
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Não serão tidos em conta os artigos anulados (verificámos que constavam no excel registos de artigos anulados). "
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Vamos avançar com esta implementação sendo necessário em paralelo definir de que lado ficarão os logs."
+                    }
+                ]
+            }
+        ]
+    }
+}

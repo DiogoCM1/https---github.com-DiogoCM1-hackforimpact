@@ -1,0 +1,79 @@
+================================================================================
+JIRA ISSUE
+================================================================================
+Key: M1API-1060
+Tipo: Technical Work | Status: In Development | Prioridade: Critical
+
+Sumario: Stocks | Inventários | Acerto diário de artigos existentes no M1 com os existentes no Primavera
+
+Descricao:
+Objetivo
+Desenvolver uma rotina de integração que sincronize periodicamente os artigos entre M1 e Primavera. M1 vai disponibilizar um endpoint com os seguintes parâmetros:
+Armazém
+Lista de artigos
+Pk do artigo
+Pk lote (facultativo)
+Quantidade
+A função que vamos disponibilizar pressupõe que o envio de informação seja efetuado armazém a armazém.
+No final de cada envio será feito um processamento de atualização de quantidades. O método irá devolver as diferenças entre quantidades atuais e quantidade anteriores no sentido de facilitar o logging dos erros. Para minimizar o consumo de recursos e facilitar a leitura dos logs, apenas serão guardados os registos que tiverem alterações de quantidades.
+Não serão tidos em conta os artigos anulados (verificámos que constavam no excel registos de artigos anulados). 
+Vamos avançar com esta implementação sendo necessário em paralelo definir de que lado ficarão os logs.
+
+Assignee: Diogo Cid Carvalho | Reporter: Bruno Doutor
+
+================================================================================
+PULL REQUEST
+================================================================================
+ID: #14052
+Titulo: WIP: Stock synchronization
+Status: active
+Branch: feature/diogo.carvalho/M1API-1060 -> master
+Criado por: Diogo Carvalho em 2025-09-30T13:34:07.188226Z
+
+Descricao: WIP: Stock synchronization
+
+================================================================================
+COMMITS (4)
+================================================================================
+  [ea5550ec] resolve conflits
+      Por: Diogo Carvalho em 2025-09-30T14:56:36Z
+  [b3d54b26] try resolve conflits
+      Por: Diogo Carvalho em 2025-09-30T14:43:50Z
+  [7a6b6dfb] left file
+      Por: Diogo Carvalho em 2025-09-30T14:32:29Z
+  [30e8bfb0] WIP: Stock synchronization
+      Por: Diogo Carvalho em 2025-09-30T13:33:21Z
+
+================================================================================
+FICHEIROS ALTERADOS (4)
+================================================================================
+  [edit] /MedicineOneLibraryWS/MedicineOneLibraryWS/MedicineOneLibraryWS.csproj
+  [edit] /MedicineOneLibraryWS/MedicineOneLibraryWS/M1LibraryService.asmx.cs
+  [edit] /MedicineOneLibraryWS/MedicineOneLibraryWS/Stocks/Produtos/ArtigoIntegracao.cs
+  [edit] /MedicineOneLibraryWS/MedicineOneLibraryWS.sln
+
+================================================================================
+ESTATISTICAS DE CODIGO
+================================================================================
+
+/MedicineOneLibraryWS/MedicineOneLibraryWS.sln
+  Tipo: edit
+  Antes: 80 linhas
+  Depois: 83 linhas
+  Alteracao: 6 linhas
+
+/MedicineOneLibraryWS/MedicineOneLibraryWS/M1LibraryService.asmx.cs
+  Tipo: edit
+  Antes: 5081 linhas
+  Depois: 5181 linhas
+  Alteracao: 200 linhas
+
+/MedicineOneLibraryWS/MedicineOneLibraryWS/MedicineOneLibraryWS.csproj
+  Tipo: edit
+  Antes: 292 linhas
+  Depois: 293 linhas
+  Alteracao: 2 linhas
+
+/MedicineOneLibraryWS/MedicineOneLibraryWS/Stocks/Produtos/ArtigoIntegracao.cs
+  Tipo: add
+  Ficheiro novo: 26 linhas
