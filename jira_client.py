@@ -104,7 +104,7 @@ class JiraClient:
 if __name__ == "__main__":
     client = JiraClient()
 
-    issue_key = "M1API-1060"
+    issue_key = "M1-28446"
     print(f"Buscando issue {issue_key}...\n")
 
     issue_data = client.get_issue_summary_only(issue_key)

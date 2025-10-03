@@ -161,9 +161,8 @@ class AzureDevOpsClient:
 if __name__ == "__main__":
     client = AzureDevOpsClient()
 
-    repo = "MedicineOneLibrary"
-    pr_id = 14052
-
+    repo = "MedicineOneAPI"
+    pr_id = 14097 
     print(f"Buscando Pull Request #{pr_id} do repositorio {repo}...\n")
 
     # Gerar pr_commits.json

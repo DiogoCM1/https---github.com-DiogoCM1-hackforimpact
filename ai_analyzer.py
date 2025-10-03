@@ -114,45 +114,63 @@ class AIAnalyzer:
         formatted_json = json.dumps(data, indent=2, ensure_ascii=False)
         formatted_json = self._truncate_text(formatted_json, max_chars=80000)
 
-        prompt = f"""Analisa os seguintes dados de uma issue do Jira e um Pull Request do Azure DevOps e gera documentação técnica completa e profissional.
+        prompt = f"""Analisa os seguintes dados de uma issue do Jira (se disponível) e um Pull Request do Azure DevOps e gera documentação técnica completa e profissional.
 
 # DADOS ESTRUTURADOS
 {formatted_json}
 
 # TAREFA
-Gera documentação técnica no seguinte formato:
+Gera documentação técnica clara e profissional baseada nas alterações do código. A documentação deve ser adaptada ao tipo de mudança (API, funcionalidade, bug fix, etc.).
 
-## 🧾 Description
-Breve descrição do que o endpoint/funcionalidade faz
+## 📋 Estrutura da Documentação
 
-## 📡 Request
-- **SOAP Action / HTTP Method**: [método]
-- **Content type**: [tipo]
+### 1. **Resumo**
+- Título descritivo da funcionalidade/alteração
+- Breve descrição (2-3 frases) do que foi implementado/alterado
 
-## 📦 Parameters
-Lista de todos os parâmetros:
-- **Nome** (tipo) - Descrição
+### 2. **Contexto** (se aplicável)
+- Objetivo da mudança
+- Problema que resolve
+- Relação com a issue do Jira (se disponível)
 
-## 📥 Example request body
-```xml
-[exemplo de request SOAP/REST]
+### 3. **Detalhes Técnicos**
+Adapta conforme o tipo de alteração:
+
+**Para APIs/Endpoints:**
+- Método HTTP e endpoint
+- Parâmetros de entrada (com tipos e descrições)
+- Formato de resposta
+- Códigos de status HTTP
+- Exemplos de request/response
+
+**Para Funcionalidades:**
+- Como usar a funcionalidade
+- Configurações necessárias
+- Dependências
+- Exemplos de código
+
+**Para Bug Fixes:**
+- Descrição do bug corrigido
+- Causa raiz identificada
+- Solução implementada
+
+### 4. **Exemplos de Uso** (se aplicável)
+```
+[Exemplos práticos baseados no código do PR]
 ```
 
-## ✅ Common successful response
-```xml
-[exemplo de resposta bem-sucedida]
-```
-
-## ❌ Common error responses (se aplicável)
-```xml
-[exemplos de respostas de erro]
-```
+### 5. **Notas Adicionais** (se aplicável)
+- Limitações conhecidas
+- Considerações de performance
+- Breaking changes
+- Migrações necessárias
 
 IMPORTANTE:
-- Mantém a documentação concisa e focada
-- Usa emojis nos títulos como mostrado
-- Inclui exemplos de código reais baseados no código do PR
-- Formata em Markdown"""
+- Adapta a estrutura ao contexto das alterações
+- Usa exemplos reais do código alterado
+- Mantém linguagem clara e profissional
+- Formata em Markdown
+- Usa emojis moderadamente nos títulos para melhor visualização"""
 
         return prompt
 
@@ -241,7 +259,7 @@ IMPORTANTE:
         formatted_json = self._truncate_text(formatted_json, max_chars=80000)
 
         prompt = f"""Analisa as seguintes alterações de código e fornece um code review detalhado e construtivo.
-
+no final dá-me sugestões do que pode ser mudado, procura também variáveis com erros  ou pouca leitura
 # DADOS DO PULL REQUEST
 {formatted_json}
 
