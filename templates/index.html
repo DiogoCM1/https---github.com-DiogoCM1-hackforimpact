@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered PR Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI-Powered PR Analyzer</h1>
+            <p>Análise automática de Pull Requests com IA</p>
+        </header>
+
+        <div class="config-status" id="configStatus">
+            <h3>Status da Configuração</h3>
+            <div class="status-grid">
+                <div class="status-item">
+                    <span class="status-label">Jira:</span>
+                    <span class="status-value" id="jiraStatus">⏳ Testando...</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Azure DevOps:</span>
+                    <span class="status-value" id="azureStatus">⏳ Testando...</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">AI Provider:</span>
+                    <span class="status-value" id="aiStatus">⏳ Testando...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <h2>Configurar Análise</h2>
+            <form id="analysisForm">
+                <div class="form-group">
+                    <label for="repository">Repositório *</label>
+                    <input type="text" id="repository" name="repository" placeholder="MedicineOneLibrary" value="{{ default_repo }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pr_id">Pull Request ID *</label>
+                    <input type="number" id="pr_id" name="pr_id" placeholder="14264" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="issue_key">Jira Issue Key (opcional)</label>
+                    <input type="text" id="issue_key" name="issue_key" placeholder="M1-28446">
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="generate_documentation" name="generate_documentation" checked>
+                        Gerar Documentação Técnica
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="generate_code_review" name="generate_code_review" checked>
+                        Gerar Code Review
+                    </label>
+                </div>
+
+                <button type="submit" id="startBtn" class="btn-primary">
+                    Iniciar Análise
+                </button>
+            </form>
+        </div>
+
+        <div class="progress-card" id="progressCard" style="display: none;">
+            <h2>Progresso da Análise</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p class="progress-text" id="progressText">Iniciando...</p>
+        </div>
+
+        <div class="results-card" id="resultsCard" style="display: none;">
+            <h2>Resultados</h2>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="documentation">📝 Documentação</button>
+                <button class="tab-btn" data-tab="review">🔍 Code Review</button>
+                <button class="tab-btn" data-tab="data">📊 Dados</button>
+            </div>
+
+            <div class="tab-content active" id="documentation">
+                <div class="result-content" id="documentationContent">
+                    <p class="empty-state">Nenhuma documentação gerada</p>
+                </div>
+            </div>
+
+            <div class="tab-content" id="review">
+                <div class="result-content" id="reviewContent">
+                    <p class="empty-state">Nenhum code review gerado</p>
+                </div>
+            </div>
+
+            <div class="tab-content" id="data">
+                <div class="data-section">
+                    <h3>Issue Jira</h3>
+                    <pre id="issueData">N/A</pre>
+                </div>
+                <div class="data-section">
+                    <h3>Pull Request</h3>
+                    <pre id="prData">N/A</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>
